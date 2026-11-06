@@ -9,7 +9,7 @@ body{
 }
 
 :root{
-    --color-principal: #0b5ed7;
+    --color-principal: #d7480b;
     --color-texto: #000000;
     --ancho-max:1140px 
 }
@@ -168,8 +168,12 @@ footer a{
 /* base: celular */
 .menu { display: none; }        /* lo abrirá la hamburguesa */
 
+.header { flex-wrap: wrap; }          /* el menú abierto baja a otra línea */
+.menu { width: 100%; }
+.menu.abierto { display: block; }
+.menu.abierto ul { flex-direction: column; padding-top: 1rem; }
 @media (min-width: 501px) {
-    
+
   .portada h1 { font-size: 2.1rem; }
 }
 
@@ -187,4 +191,17 @@ footer a{
   .menu { display: block; }       /* menú normal en pantalla grande */
   .hamburguesa { display: none; }
   .portada h1 { font-size: 2.6rem; }
+  .menu { display: block; width: auto; }   /* siempre visible en escritorio */
+.hamburguesa { display: none; }
+.menu.abierto ul { flex-direction: row; padding-top: 0; }
+}
+
+.hamburguesa.activo span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburguesa.activo span:nth-child(2) { opacity: 0; }
+.hamburguesa.activo span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.cards img{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+   
 }
